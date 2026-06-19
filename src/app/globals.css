@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #C5974B;
+  --color-gold-light: #D4A853;
+  --color-gold-dark: #916E2B;
+  --color-bronze: #8B6914;
+  --color-amber: #D4A853;
+  --color-surface: #111111;
+  --color-surface-dark: #0a0a0a;
+  --color-surface-light: #1a1a1a;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #0a0a0a;
+    color: #e5e5e5;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a0a0a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C5974B40;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C5974B80;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(197, 151, 75, 0.15);
+  }
+
+  .glass-strong {
+    background: rgba(17, 17, 17, 0.7);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(197, 151, 75, 0.2);
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #D4A853, #C5974B, #8B6914);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gold-gradient-bg {
+    background: linear-gradient(135deg, #C5974B, #D4A853);
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 30px rgba(197, 151, 75, 0.3),
+                0 0 60px rgba(197, 151, 75, 0.1);
+  }
+
+  .gold-glow-sm {
+    box-shadow: 0 0 15px rgba(197, 151, 75, 0.2);
+  }
+
+  .gold-glow-text {
+    text-shadow: 0 0 20px rgba(197, 151, 75, 0.5);
+  }
+
+  .gold-border-glow {
+    box-shadow: 0 0 15px rgba(197, 151, 75, 0.15),
+                inset 0 0 15px rgba(197, 151, 75, 0.05);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-gold {
+    animation: pulseGold 3s ease-in-out infinite;
+  }
+
+  .animate-scan {
+    animation: scan 3s linear infinite;
+  }
+
+  .holographic {
+    background: linear-gradient(
+      135deg,
+      rgba(197, 151, 75, 0.05) 0%,
+      rgba(212, 168, 83, 0.1) 25%,
+      rgba(139, 105, 20, 0.05) 50%,
+      rgba(197, 151, 75, 0.1) 75%,
+      rgba(145, 110, 43, 0.05) 100%
+    );
+  }
+
+  .grid-overlay {
+    background-image:
+      linear-gradient(rgba(197, 151, 75, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(197, 151, 75, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseGold {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) translateX(10px) scale(1);
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(-10px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
